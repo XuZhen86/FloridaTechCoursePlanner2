@@ -95,10 +95,10 @@
         <button
           mat-menu-item
           *ngFor="let level of COURSE_LEVELS"
-          [disabled]="!isElementExists('course_' + level)"
-          (mouseenter)="scrollIntoView('course_' + level)"
+          [disabled]="!isCourseLevelExists(level)"
+          (mouseenter)="scrollIntoView('course_' + level + '000 Level')"
         >
-          {{level}}
+          {{level}}000 Level
         </button>
       </mat-menu>
     </mat-tab>

@@ -18,7 +18,7 @@ export class CourseSelectorCardComponent implements OnInit, OnDestroy {
   private readonly SUBSCRIPTIONS: (Subscription | undefined)[] = [];
 
   subjectPrefixes: string[] = [];
-  readonly COURSE_LEVELS = Array.from(Array(7).keys()).map((_value, index) => index + '000 Level');
+  readonly COURSE_LEVELS = Array.from(Array(7).keys());
 
   @ViewChild(MatTabGroup) tabGroup: MatTabGroup;
 
@@ -309,8 +309,8 @@ export class CourseSelectorCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  isElementExists(id: string) {
-    return document.getElementById(id) !== null;
+  isCourseLevelExists(level: number) {
+    return this.courses.some((course) => Math.floor(course.course / 1000) === level);
   }
 
   scrollIntoView(id: string) {
